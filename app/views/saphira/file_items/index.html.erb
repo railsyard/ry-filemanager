@@ -1,0 +1,41 @@
+<%= content_for :extra_header do %>
+    <%= stylesheet_link_tag "admin/filemanager.css" %>
+<% end %>
+<header class="page_description">
+    <h2><%= @file_item.name %></h2>
+</header>
+<div class="filemanager">
+  <table class="files">
+    <tr>
+      <th><%= t('admin.filemanager.file_name')%></th>
+      <th><%= t('admin.filemanager.file_type')%></th>
+      <th></th>
+    </tr>
+    <% unless @file_item.id.nil? %>
+    <tr>
+      <td>
+        <%= link_to (image_tag('admin/icons/small/grey/BendedArrowUp.png')+' ..'), (@file_item.parent || file_items_path) %>
+      </td>
+      <td></td>
+      <td></td>
+    </tr>
+    <% end %>
+  <% @file_items.each do |file_item| %>
+    <tr class="<%= file_item.item_type %> <%= file_item.slug %>">
+      <td><%= link_to (image_tag(image_for(file_item))+' '+file_item.name), file_item %></td>
+      <td><%= file_item.file.mime_type if file_item.file %></td>
+      <td class="actions"><%= link_to image_tag('admin/icons/small/grey/Trashcan.png'), file_item, confirm: 'Are you sure?', method: :delete, id: "filemanager-action-destroy-#{file_item.slug}" %></td>
+    </tr>
+  <% end %>
+  </table>
+
+  <br />
+
+
+  <% unless @file_item.id.nil? %>
+  <%= link_to t('admin.filemanager.edit_folder'), edit_file_item_path(@file_item) %> | 
+  <% end %>
+
+  <%= link_to t('admin.filemanager.new_file'), new_file_item_path(:type => ::Saphira::FileItem::TYPE_FILE, :parent_id => @file_item.id) %> | 
+  <%= link_to t('admin.filemanager.new_folder'), new_file_item_path(:type => ::Saphira::FileItem::TYPE_FOLDER, :parent_id => @file_item.id) %>
+</div>

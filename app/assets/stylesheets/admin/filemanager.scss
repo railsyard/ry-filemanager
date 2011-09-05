@@ -1,0 +1,25 @@
+.filemanager {
+  table.files {
+    td {
+      vertical-align: middle;
+      padding: 2px;
+      img {
+        vertical-align: middle;
+      }
+    }
+    th {
+      background-color: #DDDDDD;
+      padding: 2px;
+    }
+  }
+  .information {
+    float: right;
+    td, th {
+      padding: 6px;
+    }
+    th, td.key {
+      background-color: #DDDDDD;
+      font-weight: bold;
+    }
+  }
+}

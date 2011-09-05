@@ -1,0 +1,51 @@
+<%= content_for :extra_header do %>
+    <%= stylesheet_link_tag "admin/filemanager.css" %>
+<% end %>
+<header class="page_description">
+    <h2><%= @file_item.name %></h2>
+</header>
+
+<p id="notice"><%= notice %></p>
+
+<div class="filemanager">
+  <div class="information">
+    <table class="key-value">  
+      <tr>
+        <th colspan="2">General</th>
+      </tr>
+      <tr>
+        <td class="key">Name</td>
+        <td class="value"><%= @file_item.name %></td>
+      </tr>
+      <tr>
+        <td class="key">Type</td>
+        <td class="value"><%= @file_item.file.mime_type %></td>
+      </tr>
+      <tr>
+        <td class="key">Tags</td>
+        <td class="value"><%= @file_item.tag_list %></td>
+      </tr>
+      <tr>
+        <th colspan="2">Additional</th>
+      </tr>
+      <% @file_item.dynamic_attributes.each do |key, value| %>
+      <tr>
+        <td class="key"><%= t key, :scope => 'admin.filemanager.dynamic_attributes' %></td>
+        <td class="value"><%= value %></td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+
+  <% if @file_item.file_uid %>
+  <div class="image">
+    <%= image_tag @file_item.file.thumb('300x300').url %>
+  </div>
+  <% end %>
+  
+  <div style="clear: both;" class="actions">
+    <%= link_to 'Edit', edit_file_item_path(@file_item) %> |
+    <%= link_to 'Back', @file_item.parent || file_items_path %> |
+    <%= link_to 'Download', @file_item.file.url %>
+  </div>
+</div>

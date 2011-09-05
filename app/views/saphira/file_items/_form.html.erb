@@ -1,0 +1,33 @@
+<%= form_for(@file_item) do |f| %>
+  <% if @file_item.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@file_item.errors.count, "error") %> prohibited this file_item from being saved:</h2>
+
+      <ul>
+      <% @file_item.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <% unless @file_item.item_type == Saphira::FileItem::TYPE_FOLDER %>
+  <div class="field">
+    <%= f.label :file %><br />
+    <%= f.file_field :file %>
+  </div>
+  <% end %>
+  <div class="field">
+    <%= f.label :tag_list %><br />
+    <%= f.text_field :tag_list %>
+  </div>
+  <div class="actions">
+    <%= f.hidden_field :item_type %>
+    <%= f.hidden_field :parent_id %>
+    <%= f.submit 'Create' %>
+  </div>
+<% end %>

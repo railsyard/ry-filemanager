@@ -1,0 +1,7 @@
+<li><a <%= set_class(:class => "top_level", :controller => ["file_items"]) %>><%= image_tag 'admin/icons/small/grey/Paperclip.png' %><%= t('admin.filemanager.filemanager', :default => 'Filemanager') %></a>
+    <ul class="drawer">
+          <li <%= set_class(:controller => "file_items", :action => ["index", "show"]) %>><%= link_to t('admin.filemanager.list', :default => 'List'), filemanager.file_items_path %></li>
+          <li <%= set_class(:controller => "file_items", :action => "new") %>><%= link_to t('admin.filemanager.new_file', :default => 'New File'), filemanager.new_file_item_path(:type => ::Saphira::FileItem::TYPE_FILE, :parent_id => @file_item.try(:id)) %></li>
+          <li <%= set_class(:controller => "file_items", :action => "new") %>><%= link_to t('admin.filemanager.new_folder', :default => 'New Folder'), filemanager.new_file_item_path(:type => ::Saphira::FileItem::TYPE_FOLDER, :parent_id => @file_item.try(:id)) %></li>
+    </ul>
+</li>
