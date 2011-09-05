@@ -8,7 +8,11 @@ class RyFilemanagerCell< Cell::Rails
     @image = nil
     if @file_item
       @image = @file_item.file
-      @image = @image.thumb(@options[:image_size]) unless @options[:image_size].nil? or @options[:image_size].empty?
+      unless @options[:image_size].nil? or @options[:image_size].empty?
+        @options[:image_size].split(' ').each do |size|
+          @image = @image.thumb(size)
+        end
+      end
     end
     render
   end
