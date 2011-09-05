@@ -18,4 +18,5 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
 
   s.add_dependency "saphira", "~> 0.1.0.beta2"
+  s.add_development_dependency "pry"
 end

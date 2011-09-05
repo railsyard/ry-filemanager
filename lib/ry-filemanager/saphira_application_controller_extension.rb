@@ -21,6 +21,9 @@ module RyFilemanager
       receiver.layout 'admin'
       receiver.helper ::Admin::AdminHelper
       receiver.helper_method :image_for
+      receiver.before_filter :authenticate_user!, :except => [:login, :logout]
+      receiver.check_authorization
+      receiver.authorize_resource :class => "Saphira::FileItem"
     end
   end
 end

@@ -3,8 +3,6 @@ ry-filemanager
 
 The ry-filemanager extends the Railsyard CMS with a file manager. This gem is based on saphira, which is a file manager written in rails.
 
-IMPORTANT! The admin panel of the file manager is not secured yet, this gem is under development!!!
-
 Features
 --------
 * Create folders
@@ -14,7 +12,6 @@ Features
 
 To-Do
 -----
-* Secure backend!!!
 * Widgets for displaying files in the frontend (i.e. show image, image gallery and image slider)
 
 Requirements
