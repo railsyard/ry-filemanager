@@ -5,14 +5,12 @@ The ry-filemanager extends the Railsyard CMS with a file manager. This gem is ba
 
 Features
 --------
-* Create folders
-* Upload files
-* Tag files
-* Automatically read EXIF data from images
+* All features saphira (https://github.com/spieker/saphira) provides
+* An image widget
 
 To-Do
 -----
-* Widgets for displaying files in the frontend (i.e. show image, image gallery and image slider)
+* Widgets for displaying files in the frontend (i.e. image gallery and image slider)
 
 Requirements
 ------------
