@@ -1,0 +1,11 @@
+cell:
+    name:   FileManager
+    class:  ry_filemanager
+    actions:
+        -   name:   Image widget
+            method: image_widget
+            desc:   Places one selected image at the frontend
+            serialized_attributes:
+                file_item_id: ry_filemanager_file_selector
+                image_size: string
+                div_class: string

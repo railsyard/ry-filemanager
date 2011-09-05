@@ -1,0 +1,7 @@
+<div class='ry_filemanager_image_widget'>
+  <% if @image %>
+    <%= image_tag @image.url %>
+  <% else %>
+    <span class="widget_config_error">No image is selected</span>
+  <% end %>
+</div>
